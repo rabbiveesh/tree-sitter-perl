@@ -6080,7 +6080,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "argument"
+                  "name": "argument_list"
                 }
               ]
             }
@@ -6281,7 +6281,7 @@
                             },
                             {
                               "type": "SYMBOL",
-                              "name": "argument"
+                              "name": "argument_list"
                             }
                           ]
                         }
@@ -6327,7 +6327,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "argument"
+            "name": "argument_list"
           },
           {
             "type": "STRING",
@@ -6336,7 +6336,7 @@
         ]
       }
     },
-    "argument": {
+    "argument_list": {
       "type": "PREC_LEFT",
       "value": 29,
       "content": {
@@ -8972,7 +8972,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "hash_arrow_operator"
+            "name": "fat_comma"
           },
           {
             "type": "CHOICE",
@@ -9060,7 +9060,7 @@
       "type": "PATTERN",
       "value": "->"
     },
-    "hash_arrow_operator": {
+    "fat_comma": {
       "type": "PATTERN",
       "value": "=>"
     },
@@ -9230,10 +9230,10 @@
     ],
     [
       "_expression_without_call_expression_with_just_name",
-      "argument"
+      "argument_list"
     ],
     [
-      "argument",
+      "argument_list",
       "array"
     ],
     [

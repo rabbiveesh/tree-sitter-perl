@@ -73,8 +73,8 @@ module.exports = grammar({
     [$.hash_ref],
     [$.hash],
     [$.hash_ref, $._dereference],
-    [$._expression_without_call_expression_with_just_name, $.argument],
-    [$.argument, $.array],
+    [$._expression_without_call_expression_with_just_name, $.argument_list],
+    [$.argument_list, $.array],
     [$._expression, $.method_invocation],
     [$._expression, $.goto_expression, $.method_invocation],
     [$._expression, $.ternary_expression_in_hash],
@@ -1189,7 +1189,7 @@ module.exports = grammar({
         token.immediate('::'),
       )),
       field('function_name', $.identifier),
-      field('args', choice($.empty_parenthesized_argument, $.parenthesized_argument, $.argument)),
+      field('args', choice($.empty_parenthesized_argument, $.parenthesized_argument, $.argument_list)),
     )),
 
     call_expression_with_just_name: $ => prec.right(PRECEDENCE.SUB_CALL, seq(
@@ -1222,7 +1222,7 @@ module.exports = grammar({
             choice(
               $.empty_parenthesized_argument,
               $.parenthesized_argument,
-              $.argument
+              $.argument_list
             )
           )), // TODO: make this optional and fix errors
         ),
@@ -1233,11 +1233,11 @@ module.exports = grammar({
 
     parenthesized_argument: $ => prec(PRECEDENCE.SUB_ARGS, seq(
       '(',
-      $.argument,
+      $.argument_list,
       ')',
     )),
 
-    argument: $ => prec.left(PRECEDENCE.SUB_ARGS, commaSeparated(choice($._dereference, $._expression))),
+    argument_list: $ => prec.left(PRECEDENCE.SUB_ARGS, commaSeparated(choice($._dereference, $._expression))),
 
     call_expression_recursive: $ => seq(
       '__SUB__',
@@ -1657,7 +1657,7 @@ module.exports = grammar({
         alias($.key_words_in_hash_key, $.bareword),
         $._expression_without_call_expression_with_just_name,
       )),
-      $.hash_arrow_operator,
+      $.fat_comma,
       choice(
         // field('value', $.hash_access_variable),
         field('value', $._expression),
@@ -1678,7 +1678,7 @@ module.exports = grammar({
     )),
 
     arrow_operator: $ => /->/,
-    hash_arrow_operator: $ => /=>/,
+    fat_comma: $ => /=>/,
 
     // some key words
     super: $ => 'SUPER',

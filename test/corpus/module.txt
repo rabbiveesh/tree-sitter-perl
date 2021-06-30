@@ -41,6 +41,6 @@ __PACKAGE__->load_namespaces(
 (source_file
   (method_invocation
     package_name: (identifier) (arrow_operator) function_name: (identifier)
-    args: (argument (bareword) (string_single_quoted) )
+    args: (argument_list (bareword) (string_single_quoted) )
   )
 )

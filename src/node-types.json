@@ -15,7 +15,7 @@
     }
   },
   {
-    "type": "argument",
+    "type": "argument_list",
     "named": true,
     "fields": {},
     "children": {
@@ -3354,7 +3354,7 @@
         "required": false,
         "types": [
           {
-            "type": "argument",
+            "type": "argument_list",
             "named": true
           },
           {
@@ -6414,7 +6414,7 @@
       "required": false,
       "types": [
         {
-          "type": "hash_arrow_operator",
+          "type": "fat_comma",
           "named": true
         },
         {
@@ -7579,7 +7579,7 @@
       "required": false,
       "types": [
         {
-          "type": "hash_arrow_operator",
+          "type": "fat_comma",
           "named": true
         },
         {
@@ -8651,6 +8651,10 @@
           "named": true
         },
         {
+          "type": "fat_comma",
+          "named": true
+        },
+        {
           "type": "file_handle",
           "named": true
         },
@@ -8688,10 +8692,6 @@
         },
         {
           "type": "hash_access_variable",
-          "named": true
-        },
-        {
-          "type": "hash_arrow_operator",
           "named": true
         },
         {
@@ -8981,7 +8981,7 @@
         "required": false,
         "types": [
           {
-            "type": "argument",
+            "type": "argument_list",
             "named": true
           },
           {
@@ -9706,7 +9706,7 @@
       "required": true,
       "types": [
         {
-          "type": "argument",
+          "type": "argument_list",
           "named": true
         }
       ]
@@ -15918,6 +15918,10 @@
     "named": true
   },
   {
+    "type": "fat_comma",
+    "named": true
+  },
+  {
     "type": "feature",
     "named": false
   },
@@ -15956,10 +15960,6 @@
   {
     "type": "gt",
     "named": false
-  },
-  {
-    "type": "hash_arrow_operator",
-    "named": true
   },
   {
     "type": "hash_variable",
