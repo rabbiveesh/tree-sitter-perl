@@ -158,10 +158,6 @@ module.exports = grammar({
     )),
 
     special_literal: $ => choice(
-      '__FILE__',
-      '__LINE__',
-      '__PACKAGE__',
-      '__SUB__',
       '__END__',
       '__DATA__',
     ),
@@ -1207,7 +1203,7 @@ module.exports = grammar({
 
     method_invocation: $ => prec.left(PRECEDENCE.SUB_CALL + 1, seq(
       choice(
-        field('package_name', choice($.identifier, $.package_name, $.string_single_quoted)),
+        field('package_name', choice($.identifier, $.package_name, $.string_single_quoted, '__PACKAGE__')),
         field('object', $.scalar_variable),
         field('object_return_value', $._expression),
       ),
@@ -1222,7 +1218,13 @@ module.exports = grammar({
             $.scalar_variable,
             $.scalar_reference,
           ),
-          optional(field('args', choice($.empty_parenthesized_argument, $.parenthesized_argument, $.argument))), // TODO: make this optional and fix errors
+          optional(field('args',
+            choice(
+              $.empty_parenthesized_argument,
+              $.parenthesized_argument,
+              $.argument
+            )
+          )), // TODO: make this optional and fix errors
         ),
       ),
     ))),

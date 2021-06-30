@@ -9245,6 +9245,10 @@
         "required": false,
         "types": [
           {
+            "type": "__PACKAGE__",
+            "named": false
+          },
+          {
             "type": "identifier",
             "named": true
           },
@@ -15850,14 +15854,6 @@
     "named": false
   },
   {
-    "type": "__FILE__",
-    "named": false
-  },
-  {
-    "type": "__LINE__",
-    "named": false
-  },
-  {
     "type": "__PACKAGE__",
     "named": false
   },
@@ -16075,11 +16071,11 @@
   },
   {
     "type": "prototype",
-    "named": false
+    "named": true
   },
   {
     "type": "prototype",
-    "named": true
+    "named": false
   },
   {
     "type": "push",
