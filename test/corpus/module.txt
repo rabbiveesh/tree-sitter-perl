@@ -27,3 +27,20 @@ my $output = BaseModule->new();
   (variable_declaration (scope) (single_var_declaration (scalar_variable))
   (method_invocation (identifier) (arrow_operator) (identifier) (empty_parenthesized_argument)) )
 )
+
+=================================================
+__PACKAGE__ literal (DBIC style)
+=================================================
+
+__PACKAGE__->load_namespaces(
+  default_resultset_class => 'My::ResultSet'
+);
+
+---
+
+(source_file
+  (method_invocation
+    package_name: (identifier) (arrow_operator) function_name: (identifier)
+    (args)
+  )
+)
